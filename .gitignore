@@ -1,0 +1,38 @@
+# Diretório de build
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
+
+# Binários gerados
+*.exe
+*.out
+*.o
+*.a
+*.so
+*.dll
+*.dylib
+
+# Arquivos temporários
+*.swp
+*.swo
+*~
+*.log
+
+# Arquivos do VSCode
+.vscode/
+*.code-workspace
+
+# Arquivos do CLion / JetBrains
+.idea/
+
+# Arquivos do Visual Studio
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+
+# Arquivos de teste do ctest
+Testing/
+CTestTestfile.cmake
