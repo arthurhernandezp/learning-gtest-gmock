@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.14) # FetchContent precisa >= 3.14
 project(learning-gtest-gmock LANGUAGES CXX)
 
-include(CTest)
 enable_testing()
 
 include(FetchContent)

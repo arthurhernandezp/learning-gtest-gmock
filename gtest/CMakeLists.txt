@@ -1,1 +1,2 @@
 add_subdirectory(01_basico)
+add_subdirectory(examples_cases)
