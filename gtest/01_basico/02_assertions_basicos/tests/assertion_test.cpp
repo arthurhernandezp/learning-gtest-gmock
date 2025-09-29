@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 #include <vector>
-
-int countPositives(std::vector<int> const & inputVector);
+#include "assertion.hpp"
 
 TEST(TestCountPositives, Basictest)
 {

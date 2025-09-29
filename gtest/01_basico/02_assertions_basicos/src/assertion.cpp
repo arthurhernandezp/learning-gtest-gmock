@@ -1,6 +1,8 @@
 #include <algorithm>
 #include <vector>
 
+#include "assertion.hpp"
+
 bool isPositive(int x)
 {
     return (x >= 0);
