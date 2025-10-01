@@ -5,7 +5,6 @@ class AccountTestFixture : public testing::Test
 {
     public:
         void SetUp() override;
-        void TearDown() override;
     protected:
         Account account;
 };
