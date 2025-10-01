@@ -21,3 +21,4 @@ FetchContent_MakeAvailable(googletest)
 
 # Adiciona subdiretórios de estudo
 add_subdirectory(gtest)
+add_subdirectory(gmock)
