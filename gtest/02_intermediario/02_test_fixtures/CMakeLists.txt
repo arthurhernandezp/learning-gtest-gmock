@@ -7,6 +7,7 @@ include_directories(include)
 add_executable(${TEST_NAME}
     src/Account.cpp
     tests/Account_no_fixture_test.cpp
+    tests/Account_fixture_test.cpp
 )
 
 # Linka com GoogleTest via FetchContent
