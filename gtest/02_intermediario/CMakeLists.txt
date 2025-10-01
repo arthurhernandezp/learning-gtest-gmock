@@ -1,1 +1,2 @@
 add_subdirectory(01_assertions_avancadas)
+add_subdirectory(02_test_fixtures)
