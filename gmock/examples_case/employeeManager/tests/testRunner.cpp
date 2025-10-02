@@ -40,3 +40,21 @@ TEST(TestEmployeeManager, TestConnection)
     EXPECT_CALL(dbConnection,disconnect());
     EmployeeManager employeeManager(&dbConnection);
 }
+
+TEST(TestEmployeeManager, TestUpdateSalary)
+{
+    MockDatabaseConnection dbConnection("dummyConnection");
+    // Expect call tem que ser usado antes do local onde essas funções membros sao chamadas 
+    // por exemplo no constructor e destructor de EmployeeManager
+    EXPECT_CALL(dbConnection,connect());
+    EXPECT_CALL(dbConnection,disconnect());
+
+    // Faz a verificação se updateSalary foi chamado exatamente 1 vez usando os parametros 50 e 6000 
+    // EXPECT_CALL(dbConnection,updateSalary(50,6000)).Times(1);
+    // Faz a verificação se updateSalary foi chamado independente do parametro que está sendo usado
+    EXPECT_CALL(dbConnection,updateSalary(testing::_,testing::_)).Times(testing::AtLeast(1));
+
+    EmployeeManager employeeManager(&dbConnection);
+
+    employeeManager.setSalary(50,6000);
+}
