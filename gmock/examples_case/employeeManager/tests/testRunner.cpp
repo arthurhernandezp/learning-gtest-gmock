@@ -58,3 +58,21 @@ TEST(TestEmployeeManager, TestUpdateSalary)
 
     employeeManager.setSalary(50,6000);
 }
+
+TEST(TestEmployeeManager, TestGetSalary)
+{
+    const int employeeId = 50;
+    const float salary = 6100.0;
+
+    MockDatabaseConnection dbConnection("dummyConnection");
+
+    EXPECT_CALL(dbConnection,connect());
+    EXPECT_CALL(dbConnection,disconnect());
+    EXPECT_CALL(dbConnection,getSalary(employeeId)).WillOnce(testing::Return(salary));
+
+    EmployeeManager employeeManager(&dbConnection);
+
+    float employeeSalary = employeeManager.getSalary(employeeId);
+
+    ASSERT_EQ(salary,employeeSalary);
+}
