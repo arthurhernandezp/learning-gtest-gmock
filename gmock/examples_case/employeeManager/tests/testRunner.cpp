@@ -1,6 +1,7 @@
 #include <map>
 #include <stdexcept>
 #include <iostream>
+#include <vector>
 
 #include "IDatabaseConnection.hpp"
 #include "Employee.hpp"
@@ -151,4 +152,24 @@ TEST(TestEmployeeManager, TestConnectionErrorWithMemberFunctionInvoke)
     EXPECT_CALL(dbConnection,connect()).WillOnce(testing::InvokeWithoutArgs(boundMethod));
 
     ASSERT_THROW(EmployeeManager employeeManager(&dbConnection),std::runtime_error);
+}
+
+// Usando member function
+TEST(TestEmployeeManager, TestGetSalaryInRange)
+{
+    const int low = 5000, high = 8000;
+    std::vector<Employee> returnedVector{   Employee{1,5600,"John"},
+                                            Employee{2,7000,"Jane"},
+                                            Employee{3,6600,"Alex"},};
+
+
+
+    MockDatabaseConnection dbConnection("dummyConnection");
+    EXPECT_CALL(dbConnection,connect());
+    EXPECT_CALL(dbConnection,disconnect());
+    EXPECT_CALL(dbConnection,getSalariesRange(low,high)).WillOnce(testing::Return(returnedVector));
+
+    EmployeeManager employeeManager(&dbConnection);
+    std::map <std::string,float> returnedMap = employeeManager.getSalariesBetweem(low,high);
+    ASSERT_EQ(returnedMap.size(),3);
 }
